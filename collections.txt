@@ -1,0 +1,82 @@
+Task:
+
+db.Task.insertMany([
+{Task_name:"html",task_date:new Date("2020-10-03"),task_status:'pending',user_id:ObjectId('6656fcc1f9f37bc23aabc239')},
+{Task_name:"Js",task_date:new Date("2020-10-14"),task_status:'completed',user_id:ObjectId('6656fcc1f9f37bc23aabc23a')},
+{Task_name:"DOM",task_date:new Date("2020-11-01"),task_status:'pending',user_id:ObjectId('6656fcc1f9f37bc23aabc23b')},
+{Task_name:"React",task_date:new Date("2020-12-01"),task_status:'completed',user_id:ObjectId('6656fcc1f9f37bc23aabc23c')},
+{Task_name:"Db",task_date:new Date("2020-11-15"),task_status:'pending',user_id:ObjectId('6656fcc1f9f37bc23aabc23d')},
+{Task_name:"Advance js",task_date:new Date("2020-10-17"),task_status:'pending',user_id:ObjectId('6656fcc1f9f37bc23aabc239')},
+{Task_name:"BootStrap",task_date:new Date("2020-10-24"),task_status:'pending',user_id:ObjectId('6656fcc1f9f37bc23aabc23a')}
+
+]);
+
+Topics:
+
+db.Topics.insertMany([
+{Topic_name:"Html 5",Topic_date:new Date("2020-10-03"),Task_id:ObjectId('66582b653619970ad886a1c7')},
+{Topic_name:"JS",Topic_date:new Date("2020-10-14"),Task_id: ObjectId('66582b653619970ad886a1c8')},
+{Topic_name:"Db",Topic_date:new Date("2020-11-15"),Task_id:ObjectId('66582b653619970ad886a1c9')},
+{Topic_name:"Dom",Topic_date:new Date("2020-11-01"),Task_id:ObjectId('66582b653619970ad886a1ca')},
+{Topic_name:"React",Topic_date:new Date("2020-12-01"),Task_id:ObjectId('66582b653619970ad886a1cb')},
+{Topic_name:"Advance js",Topic_date:new Date("2020-10-17"),Task_id:ObjectId('665ae82d2f4316f05de3eff5')},
+{Topic_name:"BootStrap",Topic_date:new Date("2020-10-24"),Task_id:ObjectId('665ae82d2f4316f05de3eff6')},
+
+]);
+
+Company_drives:
+
+db.Company_drives.insertMany([
+{Company_name:"T-Tech",Drive_date:new Date("2020-10-03"),user_id:ObjectId('6656fcc1f9f37bc23aabc239')},
+{Company_name:"Pureganic",Drive_date:new Date("2020-10-30"),user_id:ObjectId('6656fcc1f9f37bc23aabc23a')},
+{Company_name:"Sarbhat",Drive_date:new Date("2020-10-16"),user_id:ObjectId('6656fcc1f9f37bc23aabc23b')},
+{Company_name:"AB_tech",Drive_date:new Date("2020-10-03"),user_id:ObjectId('6656fcc1f9f37bc23aabc23b')},
+{Company_name:"TS-Tech",Drive_date:new Date("2020-10-03"),user_id:ObjectId('6656fcc1f9f37bc23aabc23b')}
+
+]);
+
+codekata:
+
+db.codekata.insertMany([
+{codekata_problems:25,completed:17,pending:8,user_id:ObjectId('6656fcc1f9f37bc23aabc239')},
+{codekata_problems:25,completed:7,pending:18,user_id:ObjectId('6656fcc1f9f37bc23aabc23a')},
+{codekata_problems:25,completed:21,pending:4,user_id:ObjectId('6656fcc1f9f37bc23aabc23b')},
+{codekata_problems:25,completed:1,pending:24,user_id:ObjectId('6656fcc1f9f37bc23aabc23c')},
+{codekata_problems:25,completed:10,pending:15,user_id:ObjectId('6656fcc1f9f37bc23aabc23d')}
+
+]);
+
+Users:
+
+db.users.insertMany([
+{username:'Roshan',mentor:'Rupan',Batch:'B58fsd'},
+{username:'Shobana',mentor:'Rupan',Batch:'B58fsd'},
+{username:'Subhashini ',mentor:'Rupan',Batch:'B58fsd'},
+{username:'Siddhaarthan',mentor:'Rupan',Batch:'B58fsd'},
+{username:'SANTHOSH ',mentor:'Rupan',Batch:'B58fsd'},
+
+]);
+
+mentors:
+
+db.mentors.insertmany([
+{mentor_name:"Rupan",mentee_count:20},
+{mentor_name:"sambath",mentee_count:5},
+{mentor_name:"suresh",mentee_count:16},
+{mentor_name:"tamil",mentee_count:10},
+{mentor_name:"selevan",mentee_count:26},
+]);
+
+
+Attendance:
+
+db.Attendance.insertMany([
+{attendance_status:'present',date:new Date('2020-10-16'),user_id:ObjectId('6656fcc1f9f37bc23aabc239')},
+{attendance_status:'absent',date:new Date('2020-10-17'),user_id:ObjectId('6656fcc1f9f37bc23aabc239')},
+{attendance_status:'absent',date:new Date ('2020-10-24'),user_id:ObjectId('6656fcc1f9f37bc23aabc23a')},
+{attendance_status:'absent',date:new Date ('2020-07-11'),user_id:ObjectId('6656fcc1f9f37bc23aabc23b')},
+{attendance_status:'present',date:new Date ('2020-12-16'),user_id:ObjectId('6656fcc1f9f37bc23aabc23c')},
+{attendance status:'absent',date:new Date ('2020-01-16'),user_id:ObjectId('6656fcc1f9f37bc23aabc23d')},
+
+]);
+

@@ -1,0 +1,66 @@
+1.Find all the topics and tasks which are thought in the month of October
+
+db.Task.aggregate([{
+$lookup:{
+from:'Topics',localField:'_id',foreignField:'Task_id',as:"details"
+}},
+{$unwind:'$details'},
+{$match:{$and:[{'details.Topic_date':{$gt:new Date("2020-09-31"),$lt:new Date("2020-11-01")}},{task_date:{$gt:new Date("2020-09-31"),$lt:new Date("2020-11-01")}}]}},
+{$project:{_id:0,Task_name:1,Task_date:1,'details.Topic_name':1,'details.Topic_date':1}}
+]);
+
+2.Find all the company drives which appeared between 15 oct-2020 and 31-oct-2020
+
+db.Company_drives.find({$and:[{Drive_date:{$gt:new Date("2020-10-14")}},{Drive_date:{$lt:new Date("2020-11-31")}}]});
+
+3.Find all the company drives and students who are appeared for the placement.
+
+db.Company_drives.aggregate([{
+$lookup:{
+from:'users',localField:'user_id',foreignField:'_id',as:'Placement'
+}},
+{$unwind:'$Placement'},
+{
+$project:{Company_name:1,_id:0,name:'$Placement.username',Drive_date:1}
+}
+]);
+
+4.Find the number of problems solved by the user in codekata
+
+db.codekata.aggregate([
+{
+$lookup:{
+from:'users',
+localField:'user_id',
+foreignField:'_id',
+as:"Codekata_users"
+}
+},
+{$unwind:'$Codekata_users'},
+{
+$project:{
+_id:0,
+'Codekata_users.username':1,
+codekata_problems:1,
+completed:1,
+pending:1
+}
+}
+]);
+
+5.Find all the mentors with who has the mentee's count more than 15
+
+db.mentors.aggregate([
+  {$match:{mentee_count:{$gt:15}}}
+]);
+
+6.Find the number of users who are absent and task is not submitted  between 15 oct-2020 and 31-oct-2020
+
+db.users.aggregate([{
+$lookup:{
+from:'Task',localField:'_id',foreignField:'user_id',as:"Task"}},{$unwind:'$Task'},
+{$match:{$and:[{'Task.task_date':{$gt:new Date("2020-10-14"),$lt:new Date("2020-11-01")}},{'Task.task_status':'pending'}]}},
+{$lookup:{from:'Attendance',localField:'_id',foreignField:'user_id',as:'Attendance'}},{$unwind:'$Attendance'},
+{$match:{$and:[{'Attendance.date':{$gt:new Date("2020-10-14"),$lt:new Date("2020-11-01")}},{'Attendance.attendance_status':'absent'}]}},
+{$project:{_id:0,username:1,'Task.task_status':1,'Attendance.attendance_status':1,'Task.task_date':1,'Attendance.date':1}}
+]);
